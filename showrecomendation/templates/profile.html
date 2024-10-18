@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% extends 'navbar.html'%}
+{%load static%}
+{% block content%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie pool</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+        * {
+            /* global reset */
+            padding: 0;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            font-family: "Lato", sans-serif;
+            font-size: 1.6rem;
+            line-height: 1;
+            background: url('{% static "images/background.jpg" %}') no-repeat center center fixed;
+            background-size: cover; /* Added background-size property */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            margin: 0 45;
+            max-width: 120rem;
+        }
+        .profile-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Updated to two columns for center alignment */
+            column-gap: 5rem;
+            margin-bottom: 3rem;
+            justify-content: center; /* Center the grid horizontally */
+        }
+
+        .profile-item {
+            overflow: hidden;
+            border-radius: 3%;
+            transition: all 0.2s ease-in;
+        }
+
+        .profile-item:hover .profile-img {
+            border: 3px solid #fff;
+        }
+
+        .profile-item:hover .profile-link {
+            color: #fff;
+        }
+
+        .profile-item:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-link {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: center;
+            text-decoration: none;
+            color: #e5e5e5;
+            font-family: inherit;
+            font-size: 2rem;
+            text-align: center; /* Center the text within each link */
+        }
+
+        .profile-img {
+            width: 80%; /* Adjusted image size */
+            max-width: 200px; /* Set maximum width */
+            height: 100%;
+            border: 2px solid transparent;
+            display: block;
+            margin: auto; /* Center the image */
+        }
+
+        .btn {
+            border: none;
+            background-color: rgba(9, 9, 9, 0.6);
+            cursor: pointer;
+            color: grey;
+            font-size: 2rem;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid grey;
+            padding: 1.5rem 2rem;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            border-shadow: 1px solid #fff;
+            color: #fff;
+        }
+        .profile-item {
+    position: relative;
+    padding: 40px;
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 0px 8px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #999;
+    background-color: #222;
+    color: #fff;
+    box-shadow: 0 0 20px white; /* Added box-shadow for glowing effect */
+}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <br> </br>
+            <br> </br>
+            <br><br><br><br><br>
+    <div class="profile-container">
+
+        <ul class="profile-list">
+
+            <li class="profile-item">
+                <a href="{% url 'series_list' %}" methods="post" class="profile-link">
+                    <img
+                        class="profile-img"
+                        src="{% static 'images/s1.jpg' %}"
+                        alt="profile photo"
+                    />
+                    Series
+                </a>
+            </li>
+            <li class="profile-item">
+                <a href="{% url 'movie_list' %}" methods="post" class="profile-link">
+                    <img
+                        class="profile-img"
+                        src="{% static 'images/movie.jpg' %}"
+                        alt="profile photo"
+                    />
+                    Movies
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+{%endblock%}
